@@ -115,6 +115,10 @@
       inputRed.value = rangeRed.value;
       inputGreen.value = rangeGreen.value;
       inputBlue.value = rangeBlue.value;
+      inputRed.setAttribute('style', "color: rgb(" + rangeRed.value + ", 0, 0); border-color: rgb(" + rangeRed.value + ", 0, 0)");
+      inputGreen.setAttribute('style', "color: rgb(0, " + rangeGreen.value + ", 0); border-color: rgb(0," + rangeGreen.value + ",  0)");
+      inputBlue.setAttribute('style', "color: rgb(0, 0, " + rangeBlue.value + "); border-color: rgb(0, 0, " + rangeBlue.value + ")");
+
 
       rangeRed.addEventListener('input', setColor)
       rangeGreen.addEventListener('input', setColor)
@@ -142,13 +146,13 @@
 
       divSquare.setAttribute('style', "background-color: rgb(" + rangeRed.value + "," + rangeGreen.value + "," + rangeBlue.value + ")")
       inputRed.value = rangeRed.value;
-      inputRed.setAttribute('style', 'border: 1px solid rgb(170, 170, 170); color: black;')
-      
       inputGreen.value = rangeGreen.value;
-      inputGreen.setAttribute('style', 'border: 1px solid rgb(170, 170, 170); color: black;')
-      
       inputBlue.value = rangeBlue.value;
-      inputBlue.setAttribute('style', 'border: 1px solid rgb(170, 170, 170); color: black;')
+      
+      inputRed.setAttribute('style', "color: rgb(" + rangeRed.value + ", 0, 0); border-color: rgb(" + rangeRed.value + ", 0, 0)");
+      inputGreen.setAttribute('style', "color: rgb(0, " + rangeGreen.value + ", 0); border-color: rgb(0," + rangeGreen.value + ",  0)");
+      inputBlue.setAttribute('style', "color: rgb(0, 0, " + rangeBlue.value + "); border-color: rgb(0, 0, " + rangeBlue.value + ")");
+      
     }
   </script>
 </body>
