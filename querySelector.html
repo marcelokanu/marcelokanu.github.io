@@ -78,10 +78,24 @@
   <div id="content">
     <h1>IGTI - Desafio 1</h1>
     <h2>RGB Color Selector</h2>
-    <div class="row"><span class="text">(R) RED</span><input min="0" class="range" type="range" max="255" name="red" id="rangeRed"> <input type="text" class="input" disabled name="" id="inputRed"></div>
-    <div class="row"><span class="text">(G) GREEN</span><input min="0" class="range" type="range" max="255" name="green" id="rangeGreen"><input type="text" class="input" disabled name="" id="inputGreen"></div>
-    <div class="row"><span class="text">(B) BLUE</span><input min="0"  class="range" type="range" max="255" name="blue" id="rangeBlue"><input type="text" class="input" disabled name="" id="inputBlue"></div>
-    <div class="row"><button>Reset</button></div>
+    <div class="row">
+      <span class="text">(R) RED</span>
+      <input min="0" class="range" type="range" max="255" name="red" id="rangeRed"> 
+      <input type="text" class="input" disabled name="" id="inputRed">
+    </div>
+    <div class="row">
+      <span class="text">(G) GREEN</span>
+      <input min="0" class="range" type="range" max="255" name="green" id="rangeGreen">
+      <input type="text" class="input" disabled name="" id="inputGreen">
+    </div>
+    <div class="row">
+      <span class="text">(B) BLUE</span>
+      <input min="0"  class="range" type="range" max="255" name="blue" id="rangeBlue">
+      <input type="text" class="input" disabled name="" id="inputBlue">
+    </div>
+    <div class="row">
+      <button>Reset</button>
+    </div>
     <div id="square"></div>
   </div>
  
@@ -104,26 +118,24 @@
       rangeRed = document.querySelector('#rangeRed');
       rangeGreen = document.querySelector('#rangeGreen');
       rangeBlue = document.querySelector('#rangeBlue');
+      rangeRed.addEventListener('input', setColor)
+      rangeGreen.addEventListener('input', setColor)
+      rangeBlue.addEventListener('input', setColor)
 
       inputRed = document.querySelector('#inputRed');
       inputGreen = document.querySelector('#inputGreen');
       inputBlue = document.querySelector('#inputBlue');
-
-      button = document.querySelector("button");
-      
-      divSquare.setAttribute('style', "background-color: rgb(" + rangeRed.value + "," + rangeGreen.value + "," + rangeBlue.value + ")")
       inputRed.value = rangeRed.value;
       inputGreen.value = rangeGreen.value;
       inputBlue.value = rangeBlue.value;
       inputRed.setAttribute('style', "color: rgb(" + rangeRed.value + ", 0, 0); border-color: rgb(" + rangeRed.value + ", 0, 0)");
       inputGreen.setAttribute('style', "color: rgb(0, " + rangeGreen.value + ", 0); border-color: rgb(0," + rangeGreen.value + ",  0)");
       inputBlue.setAttribute('style', "color: rgb(0, 0, " + rangeBlue.value + "); border-color: rgb(0, 0, " + rangeBlue.value + ")");
-
-
-      rangeRed.addEventListener('input', setColor)
-      rangeGreen.addEventListener('input', setColor)
-      rangeBlue.addEventListener('input', setColor)
+      
+      button = document.querySelector("button");
       button.addEventListener('click', reset)
+      
+      divSquare.setAttribute('style', "background-color: rgb(" + rangeRed.value + "," + rangeGreen.value + "," + rangeBlue.value + ")");
     }
 
     function setColor() {
