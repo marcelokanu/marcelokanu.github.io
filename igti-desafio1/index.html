@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,13 +8,13 @@
   <title>IGTI - Desafio 1: RGB Color Selector</title>
   <style type="text/css">
     body {
-      font-family: Arial, Helvetica, sans-serif ;
+      font-family: Arial, Helvetica, sans-serif;
       margin: 0 auto;
       padding: 0;
       background-color: #e2e2e2;
     }
 
-    #content{
+    #content {
       background-color: white;
       max-width: 800px;
       margin: auto;
@@ -29,12 +30,12 @@
       margin: 20px 15px;
     }
 
-    .range{
+    .range {
       width: 100vw;
     }
 
-    .text{
-      background-color:  rgb(235, 235, 228);
+    .text {
+      background-color: rgb(235, 235, 228);
       min-width: 58px;
       height: 50px;
       padding: 0;
@@ -48,12 +49,12 @@
     .input {
       max-width: 58px;
       max-height: 50px;
-      padding:0;
+      padding: 0;
       text-align: center;
       border: 1px solid rgb(170, 170, 170);
     }
 
-    input[type=range]{
+    input[type=range] {
       cursor: pointer;
     }
 
@@ -65,22 +66,23 @@
       border: 4px solid rgb(170, 170, 170);
     }
 
-    button{
+    button {
       width: 200px;
       height: 30px;
-      background-color:  rgb(235, 235, 228);
+      background-color: rgb(235, 235, 228);
       border: 1px solid rgb(170, 170, 170);
       cursor: pointer;
     }
   </style>
 </head>
+
 <body>
   <div id="content">
     <h1>IGTI - Desafio 1</h1>
     <h2>RGB Color Selector</h2>
     <div class="row">
       <span class="text">(R) RED</span>
-      <input min="0" class="range" type="range" max="255" name="red" id="rangeRed"> 
+      <input min="0" class="range" type="range" max="255" name="red" id="rangeRed">
       <input type="text" class="input" disabled name="" id="inputRed">
     </div>
     <div class="row">
@@ -90,7 +92,7 @@
     </div>
     <div class="row">
       <span class="text">(B) BLUE</span>
-      <input min="0"  class="range" type="range" max="255" name="blue" id="rangeBlue">
+      <input min="0" class="range" type="range" max="255" name="blue" id="rangeBlue">
       <input type="text" class="input" disabled name="" id="inputBlue">
     </div>
     <div class="row">
@@ -98,23 +100,24 @@
     </div>
     <div id="square"></div>
   </div>
- 
+
   <script type="text/javascript">
     window.addEventListener('load', start)
 
     var divSquare
-        rangeRed 
-        rangeGreen 
-        rangeBlue 
-        inputRed
-        inputGreen 
-        inputBlue
-        defaultColor = "rgb(128,128,128)"
+    rangeRed
+    rangeGreen
+    rangeBlue
+    inputRed
+    inputGreen
+    inputBlue
+    defaultColor = "rgb(128,128,128)"
 
 
     function start() {
       divSquare = document.querySelector('#square');
-      
+      body = document.querySelector('body');
+
       rangeRed = document.querySelector('#rangeRed');
       rangeGreen = document.querySelector('#rangeGreen');
       rangeBlue = document.querySelector('#rangeBlue');
@@ -131,20 +134,22 @@
       inputRed.setAttribute('style', "color: rgb(" + rangeRed.value + ", 0, 0); border-color: rgb(" + rangeRed.value + ", 0, 0)");
       inputGreen.setAttribute('style', "color: rgb(0, " + rangeGreen.value + ", 0); border-color: rgb(0," + rangeGreen.value + ",  0)");
       inputBlue.setAttribute('style', "color: rgb(0, 0, " + rangeBlue.value + "); border-color: rgb(0, 0, " + rangeBlue.value + ")");
-      
+
       button = document.querySelector("button");
       button.addEventListener('click', reset)
-      
+
       divSquare.setAttribute('style', "background-color: rgb(" + rangeRed.value + "," + rangeGreen.value + "," + rangeBlue.value + ")");
+      body.setAttribute('style', "background-color: rgb(" + rangeRed.value + "," + rangeGreen.value + "," + rangeBlue.value + ")");
     }
 
     function setColor() {
       divSquare.setAttribute('style', "background-color: rgb(" + rangeRed.value + "," + rangeGreen.value + "," + rangeBlue.value + ")")
+      body.setAttribute('style', "background-color: rgb(" + rangeRed.value + "," + rangeGreen.value + "," + rangeBlue.value + ")");
 
       inputRed.value = rangeRed.value;
       inputGreen.value = rangeGreen.value;
       inputBlue.value = rangeBlue.value;
-      
+
       inputRed.setAttribute('style', "color: rgb(" + rangeRed.value + ", 0, 0); border-color: rgb(" + rangeRed.value + ", 0, 0)");
       inputGreen.setAttribute('style', "color: rgb(0, " + rangeGreen.value + ", 0); border-color: rgb(0," + rangeGreen.value + ",  0)");
       inputBlue.setAttribute('style', "color: rgb(0, 0, " + rangeBlue.value + "); border-color: rgb(0, 0, " + rangeBlue.value + ")");
@@ -156,16 +161,19 @@
       rangeGreen.value = "128";
       rangeBlue.value = "128";
 
-      divSquare.setAttribute('style', "background-color: rgb(" + rangeRed.value + "," + rangeGreen.value + "," + rangeBlue.value + ")")
+      divSquare.setAttribute('style', "background-color: rgb(" + rangeRed.value + "," + rangeGreen.value + "," + rangeBlue.value + ")");
+      body.setAttribute('style', "background-color: rgb(" + rangeRed.value + "," + rangeGreen.value + "," + rangeBlue.value + ")");
+
       inputRed.value = rangeRed.value;
       inputGreen.value = rangeGreen.value;
       inputBlue.value = rangeBlue.value;
-      
+
       inputRed.setAttribute('style', "color: rgb(" + rangeRed.value + ", 0, 0); border-color: rgb(" + rangeRed.value + ", 0, 0)");
       inputGreen.setAttribute('style', "color: rgb(0, " + rangeGreen.value + ", 0); border-color: rgb(0," + rangeGreen.value + ",  0)");
       inputBlue.setAttribute('style', "color: rgb(0, 0, " + rangeBlue.value + "); border-color: rgb(0, 0, " + rangeBlue.value + ")");
-      
+
     }
   </script>
 </body>
+
 </html>
