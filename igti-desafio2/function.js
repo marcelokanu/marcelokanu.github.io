@@ -118,7 +118,6 @@ function renderStatistics(array) {
   mediaAge.innerHTML = agesMedia;
 }
 
-// Função caso queira usar keyUp do botão ao inves do keyup
 function handleVerifyValue(event) {
   if (!inputFind.value) {
     buttonFind.disabled = true;
@@ -128,6 +127,7 @@ function handleVerifyValue(event) {
     buttonFind.disabled = false;
   }
 
+  // Função caso queira utilizar a função keyup do input ao inves do click button
   // const filteredUsers = allUsers.filter((user) => {
   //   const normalizedName = user.name
   //     .toString()
