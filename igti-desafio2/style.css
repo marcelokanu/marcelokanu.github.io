@@ -34,7 +34,7 @@ h2 {
   align-items: baseline;
 }
 
-@media only screen and (max-width: 600px) {
+@media only screen and (min-device-width: 375px) and (max-device-width: 812px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait) {
   #busca {
     align-items: baseline;
     display: flex;
@@ -46,11 +46,9 @@ h2 {
     display: flex;
     align-items: center;
     justify-content: center;
-
   }
   #busca button:before {
     content: "BUSCAR";
-
   }
   .teal-text {
     display: none;
