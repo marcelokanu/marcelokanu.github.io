@@ -127,23 +127,22 @@ function handleVerifyValue(event) {
     buttonFind.disabled = false;
   }
 
-  // Função caso queira utilizar a função keyup do input ao inves do click button
-  // const filteredUsers = allUsers.filter((user) => {
-  //   const normalizedName = user.name
-  //     .toString()
-  //     .toLowerCase()
-  //     .normalize("NFD")
-  //     .replace(/[\u0300-\u036f]/g, "");
-  //   const normalizedInput = inputFind.value
-  //     .toString()
-  //     .toLowerCase()
-  //     .normalize("NFD")
-  //     .replace(/[\u0300-\u036f]/g, "");
-  //   return normalizedName.includes(normalizedInput);
-  // });
+  const filteredUsers = allUsers.filter((user) => {
+    const normalizedName = user.name
+      .toString()
+      .toLowerCase()
+      .normalize("NFD")
+      .replace(/[\u0300-\u036f]/g, "");
+    const normalizedInput = inputFind.value
+      .toString()
+      .toLowerCase()
+      .normalize("NFD")
+      .replace(/[\u0300-\u036f]/g, "");
+    return normalizedName.includes(normalizedInput);
+  });
 
-  // renderUsers(filteredUsers);
-  // renderStatistics(filteredUsers);
+  renderUsers(filteredUsers);
+  renderStatistics(filteredUsers);
 }
 
 function formatNumber(number) {

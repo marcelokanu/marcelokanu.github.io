@@ -4,10 +4,10 @@ body {
   text-rendering: optimizeLegibility !important;
   -webkit-font-smoothing: antialiased !important;
 }
-input,
-button {
+input
+{
   outline: 0;
-  cursor: pointer;
+  cursor: text;
 }
 
 #title h1,
@@ -96,6 +96,8 @@ h2 {
 
 #content-result ul li:hover {
   transform: translateX(5px);
+  background-color: #f9f9f9;
+  cursor: text;
 }
 
 #content-result ul li:first-child {
