@@ -1,57 +1,51 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <!-- Compiled and minified CSS -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"
+    />
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>IGTI - Desafio 2: Api Filter</title>
+  </head>
 
-<head>
-
-  <!-- Compiled and minified CSS -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
-  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="style.css">
-  <title>IGTI - Desafio 2: Api Filter</title>
-</head>
-
-<body>
-  <div id="content">
-
-    <div id="title">
-      <h1>IGTI - Desafio 2</h1>
+  <body>
+    <div id="content">
+      <div id="title">
+        <h1>IGTI - Desafio 2</h1>
+      </div>
+      <p class="teal-text darken-3">Busca</p>
+      <form>
+        <div id="busca">
+          <input type="text" id="inputFind" />
+          <button id="buttonFind" class="btn waves-effect waves-light">
+            <i class="small material-icons">chevron_right</i>
+          </button>
+        </div>
+      </form>
+      <div id="content-result">
+        <div class="result" id="list-user">
+          <h5><span id="countUsers"></span> usuário(s) encontrado(s)</h5>
+          <ul id="listUsers"></ul>
+        </div>
+        <div class="result" id="list-statistic">
+          <h5>Estatísticas</h5>
+          <ul>
+            <li>Sexo masculino: <span id="totalMale"></span></li>
+            <li>Sexo feminino: <span id="totalFemale"></span></li>
+            <li>Soma das idades: <span id="totalAge"></span></li>
+            <li>Média das idades: <span id="mediaAge">52.80</span></li>
+          </ul>
+        </div>
+      </div>
+      <script src="function.js"></script>
     </div>
-    <p class="teal-text darken-3">Busca</p>
-    <form>
-      <div id="busca">
-        <input type="text" id="inputFind">
-        <button id="buttonFind" class="btn waves-effect waves-light">
-          <i class="small material-icons">chevron_right</i>
-        </button>
-      </div>
-  </form>
-    <div id="content-result">
-      <div class="result" id="list-user">
-        <h5><span id="countUsers"></span> usuário(s) encontrado(s)</h5>
-        <ul id="listUsers"></ul>
-      </div>
-      <div class="result" id="list-statistic">
-        <h5>Estatísticas</h5>
-        <ul>
-          <li>
-            Sexo masculino: <span id="totalMale"></span>
-          </li>
-          <li>
-            Sexo feminino: <span id="totalFemale"></span>
-          </li>
-          <li>
-            Soma das idades: <span id="totalAge"></span>
-          </li>
-          <li>
-            Média das idades: <span id="mediaAge">52.80</span>
-          </li>
-        </ul>
-      </div>
-    </div>
-    <script src="function.js"></script>
-  </div>
-</body>
-
+  </body>
 </html>

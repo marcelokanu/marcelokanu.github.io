@@ -9,7 +9,7 @@ let numberFormat = null;
 window.addEventListener("load", () => {
   inputFind = document.querySelector("#inputFind");
   buttonFind = document.querySelector("#buttonFind");
-  
+
   buttonFind.disabled = true;
 
   countUsers = document.querySelector("#countUsers");
@@ -65,9 +65,9 @@ function preventFormSubmit() {
 
   inputFind.addEventListener("keyup", handleVerifyValue);
   inputFind.focus();
+
   
-  //para usar o click do botao ao inves de keyup
-  //buttonFind.addEventListener("click", handleSearchButton);
+  buttonFind.addEventListener("click", handleSearchButton);
 }
 
 function renderUsers(array) {
@@ -118,7 +118,39 @@ function renderStatistics(array) {
   mediaAge.innerHTML = agesMedia;
 }
 
+// Função caso queira usar keyUp do botão ao inves do keyup
 function handleVerifyValue(event) {
+  if (!inputFind.value) {
+    buttonFind.disabled = true;
+    renderUsers(allUsers);
+    renderStatistics(allUsers);
+  } else {
+    buttonFind.disabled = false;
+  }
+
+  // const filteredUsers = allUsers.filter((user) => {
+  //   const normalizedName = user.name
+  //     .toString()
+  //     .toLowerCase()
+  //     .normalize("NFD")
+  //     .replace(/[\u0300-\u036f]/g, "");
+  //   const normalizedInput = inputFind.value
+  //     .toString()
+  //     .toLowerCase()
+  //     .normalize("NFD")
+  //     .replace(/[\u0300-\u036f]/g, "");
+  //   return normalizedName.includes(normalizedInput);
+  // });
+
+  // renderUsers(filteredUsers);
+  // renderStatistics(filteredUsers);
+}
+
+function formatNumber(number) {
+  return numberFormat.format(number);
+}
+
+ function handleSearchButton(event) {
   if (!inputFind.value) {
     buttonFind.disabled = true;
   } else {
@@ -142,33 +174,3 @@ function handleVerifyValue(event) {
   renderUsers(filteredUsers);
   renderStatistics(filteredUsers);
 }
-
-function formatNumber(number) {
-  return numberFormat.format(number);
-}
-
-// Função caso queira usar click do botão ao inves do keyup
-//  function handleSearchButton(event) {
-//   if (!inputFind.value) {
-//     buttonFind.disabled = true;
-//   } else {
-//     buttonFind.disabled = false;
-//   }
-
-//   const filteredUsers = allUsers.filter((user) => {
-//     const normalizedName = user.name
-//       .toString()
-//       .toLowerCase()
-//       .normalize("NFD")
-//       .replace(/[\u0300-\u036f]/g, "");
-//     const normalizedInput = inputFind.value
-//       .toString()
-//       .toLowerCase()
-//       .normalize("NFD")
-//       .replace(/[\u0300-\u036f]/g, "");
-//     return normalizedName.includes(normalizedInput);
-//   });
-
-//   renderUsers(filteredUsers);
-//   renderStatistics(filteredUsers);
-// }
