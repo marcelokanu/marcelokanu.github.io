@@ -9,7 +9,8 @@ let numberFormat = null;
 window.addEventListener("load", () => {
   inputFind = document.querySelector("#inputFind");
   buttonFind = document.querySelector("#buttonFind");
-
+  
+  buttonFind.disabled = true;
 
   countUsers = document.querySelector("#countUsers");
   listUsers = document.querySelector("#listUsers");
