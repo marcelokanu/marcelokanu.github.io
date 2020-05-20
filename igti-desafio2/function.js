@@ -7,6 +7,11 @@ let mediaAge = 0;
 let numberFormat = null;
 
 window.addEventListener("load", () => {
+  title = document.querySelector("#title");
+  loader = document.querySelector("#loader");
+  contentResult = document.querySelector("#content-result")
+  
+  contentResult.style.visibility='hidden';
   inputFind = document.querySelector("#inputFind");
   buttonFind = document.querySelector("#buttonFind");
 
@@ -21,11 +26,7 @@ window.addEventListener("load", () => {
   totalAge = document.querySelector("#totalAge");
   mediaAge = document.querySelector("#mediaAge");
 
-  title = document.querySelector("#title");
-  loader = document.querySelector("#loader");
-  contentResult = document.querySelector("#content-result")
-  
-  contentResult.style.visibility='hidden';
+ 
 
   numberFormat = Intl.NumberFormat("pt-BR");
 
