@@ -11,6 +11,7 @@ window.addEventListener("load", () => {
   buttonFind = document.querySelector("#buttonFind");
 
   buttonFind.disabled = true;
+  inputFind.disabled = true;
 
   countUsers = document.querySelector("#countUsers");
   listUsers = document.querySelector("#listUsers");
@@ -19,6 +20,12 @@ window.addEventListener("load", () => {
   totalFemale = document.querySelector("#totalFemale");
   totalAge = document.querySelector("#totalAge");
   mediaAge = document.querySelector("#mediaAge");
+
+  title = document.querySelector("#title");
+  loader = document.querySelector("#loader");
+  contentResult = document.querySelector("#content-result")
+  
+  contentResult.style.visibility='hidden';
 
   numberFormat = Intl.NumberFormat("pt-BR");
 
@@ -31,6 +38,10 @@ async function fetchUsers() {
   );
 
   const json = await res.json();
+
+  title.removeChild(loader);
+  inputFind.disabled = false;
+  contentResult.style.visibility='visible';
 
   allUsers = json.results.map((user) => {
     const { login, name, dob, gender, picture } = user;
@@ -172,4 +183,5 @@ function formatNumber(number) {
 
   renderUsers(filteredUsers);
   renderStatistics(filteredUsers);
+
 }
