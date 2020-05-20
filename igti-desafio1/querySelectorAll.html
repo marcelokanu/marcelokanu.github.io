@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>IGTI - Desafio 1: RGB Color Selector</title>
+  </head>
+  <body>
+    <div id="content">
+      <h1>IGTI - Desafio 1</h1>
+      <h2>RGB Color Selector</h2>
+      <div class="row">
+        <span class="text">(R) RED</span
+        ><input
+          min="0"
+          class="range"
+          type="range"
+          max="255"
+          name="red"
+          id="rangeRed"
+        />
+        <input
+          type="text"
+          class="input"
+          disabled
+          name=""
+          value="128"
+          id="inputRed"
+        />
+      </div>
+      <div class="row">
+        <span class="text">(G) GREEN</span
+        ><input
+          min="0"
+          class="range"
+          type="range"
+          max="255"
+          name="green"
+          id="rangeGreen"
+        /><input
+          type="text"
+          class="input"
+          disabled
+          name=""
+          value="128"
+          id="inputGreen"
+        />
+      </div>
+      <div class="row">
+        <span class="text">(B) BLUE</span
+        ><input
+          min="0"
+          class="range"
+          type="range"
+          max="255"
+          name="blue"
+          id="rangeBlue"
+        /><input
+          type="text"
+          class="input"
+          disabled
+          name=""
+          value="128"
+          id="inputBlue"
+        />
+      </div>
+      <div class="row"><button id="btnReset">Reset</button></div>
+      <div id="square"></div>
+    </div>
+
+    <script type="text/javascript">
+      window.addEventListener("load", start);
+
+      var defaultColor = [128, 128, 128],
+        divSquare,
+        inputs = [];
+
+      function start() {
+        var body = document.querySelector("body");
+        inputs = document.querySelectorAll("input");
+        divSquare = document.querySelector("#square");
+
+        var rangeRed = document.getElementById("rangeRed");
+        var rangeGreen = document.getElementById("rangeGreen");
+        var rangeBlue = document.getElementById("rangeBlue");
+        var inputRed = document.getElementById("inputRed");
+        var inputGreen = document.getElementById("inputGreen");
+        var inputBlue = document.getElementById("inputBlue");
+
+        button = document.querySelector("#btnReset");
+        button.addEventListener("click", function () {
+          divSquare.setAttribute("style", "background-color:" + defaultColor);
+          body.setAttribute("style", "background-color: rgb(" + defaultColor);
+        });
+
+        for (var i = 0; i < inputs.length; i++) {
+          inputs[i].addEventListener("input", function () {
+            inputRed.value = rangeRed.value;
+            inputGreen.value = rangeGreen.value;
+            inputBlue.value = rangeBlue.value;
+
+            divSquare.setAttribute(
+              "style",
+              "background-color: rgb(" +
+                rangeRed.value +
+                "," +
+                rangeGreen.value +
+                "," +
+                rangeBlue.value +
+                ")"
+            );
+            button.addEventListener("click", function () {
+              rangeRed.value = inputRed.value = defaultColor[0];
+              rangeGreen.value = inputGreen.value = defaultColor[1];
+              rangeBlue.value = inputBlue.value = defaultColor[2];
+              divSquare.setAttribute(
+                "style",
+                "background-color: rgb(" +
+                  rangeRed.value +
+                  "," +
+                  rangeGreen.value +
+                  "," +
+                  rangeBlue.value +
+                  ")"
+              );
+            });
+            body.setAttribute(
+              "style",
+              "background-color: rgb(" +
+                rangeRed.value +
+                "," +
+                rangeGreen.value +
+                "," +
+                rangeBlue.value +
+                ")"
+            );
+          });
+        }
+      }
+    </script>
+  </body>
+</html>
